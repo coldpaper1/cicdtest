@@ -33,8 +33,8 @@ pipeline {
     stage('deploy k8s') {
       steps {
         sh '''
-        sudo kubectl set image deployment deploy-main ctn-blog=mhkim1560/testshop:newnewblog
-        sudo kubectl set image deployment deploy-main ctn-shop=mhkim1560/testshop:newnewshop 
+        sudo kubectl set image deployment deploy-blog ctn-blog=mhkim1560/testshop:newnewblog
+        sudo kubectl set image deployment deploy-shop ctn-shop=mhkim1560/testshop:newnewshop 
         '''
       }
     }
