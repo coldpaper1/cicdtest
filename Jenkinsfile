@@ -17,8 +17,7 @@ pipeline {
     stage('index change') {
       steps {
         sh '''
-        sudo chmod +x exec.sh
-        sudo ./exec.sh
+        sudo sed 's/BLOG/SHOP/' index.html        
 	'''
       }
     }
