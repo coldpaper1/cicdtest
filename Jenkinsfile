@@ -9,23 +9,23 @@ pipeline {
     stage('docker build and push') {
       steps {
         sh '''
-        sudo docker build -t mhkim1560/testshop:newnewblog3 .
-        sudo docker push mhkim1560/testshop:newnewblog3
+        sudo docker build -t mhkim1560/testshop:newnewblog4 .
+        sudo docker push mhkim1560/testshop:newnewblog4
         '''
       }
     }
     stage('index change') {
       steps {
         sh '''
-        sudo sed s'/BLOG/SHOP/' index.html        
+        sudo sed -i s'/BLOG/SHOP/' index.html        
 	'''
       }
     }
     stage('docker build and push2') {
       steps {
         sh '''
-        sudo docker build -t mhkim1560/testshop:newnewshop3 .
-        sudo docker push mhkim1560/testshop:newnewshop3
+        sudo docker build -t mhkim1560/testshop:newnewshop4 .
+        sudo docker push mhkim1560/testshop:newnewshop4
         '''
       }
     }
