@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-quiz2
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      quiz: two
+  
+
+  template:
+    metadata:
+      name: pod-quiz2
+      labels: 
+        quiz: two
+    
+    spec:
+      containers:  
+      - name: ctn-quiz2
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-quiz2
+
+spec:
+  ports:
+  - name: port-quiz2
+    targetPort: 80
+    port: 80
+  selector:
+    quiz2: two
+  type: LoadBalancer    
+
+
+
+
+
+
+
+
+
+
+          
