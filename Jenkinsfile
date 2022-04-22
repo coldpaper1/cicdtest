@@ -16,8 +16,10 @@ pipeline {
     }
     stage('index change') {
       steps {
-        sudo chmod +x ./exec.sh
+        sh '''
+        sudo chmod +x exec.sh
         sudo ./exec.sh
+	...
       }
     }
     stage('docker build and push2') {
