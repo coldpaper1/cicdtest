@@ -9,8 +9,8 @@ pipeline {
     stage('docker build and push') {
       steps {
         sh '''
-        sudo docker build -t mhkim1560/testshop:newnewblog .
-        sudo docker push mhkim1560/testshop:newnewblog
+        sudo docker build -t mhkim1560/testshop:newnewblog1 .
+        sudo docker push mhkim1560/testshop:newnewblog1
         '''
       }
     }
@@ -24,16 +24,16 @@ pipeline {
     stage('docker build and push2') {
       steps {
         sh '''
-        sudo docker build -t mhkim1560/testshop:newnewshop .
-        sudo docker push mhkim1560/testshop:newnewshop
+        sudo docker build -t mhkim1560/testshop:newnewshop1 .
+        sudo docker push mhkim1560/testshop:newnewshop1
         '''
       }
     }
     stage('deploy k8s') {
       steps {
         sh '''
-        sudo kubectl set image deployment deploy-blog ctn-blog=mhkim1560/testshop:newnewblog
-        sudo kubectl set image deployment deploy-shop ctn-shop=mhkim1560/testshop:newnewshop 
+        sudo kubectl set image deployment deploy-blog ctn-blog=mhkim1560/testshop:newnewblog1
+        sudo kubectl set image deployment deploy-shop ctn-shop=mhkim1560/testshop:newnewshop1
         '''
       }
     }
