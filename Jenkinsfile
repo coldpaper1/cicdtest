@@ -27,7 +27,7 @@ pipeline {
         sh '''
         sudo docker build -t mhkim1560/testshop:newnewshop .
         sudo docker push mhkim1560/testshop:newnewshop
-        '''
+        ...
       }
     }
     stage('deploy k8s') {
