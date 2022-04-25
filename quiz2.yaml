@@ -7,14 +7,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      quiz: two
+      quiz2: two
   
 
   template:
     metadata:
       name: pod-quiz2
       labels: 
-        quiz: two
+        quiz2: two
     
     spec:
       containers:  
